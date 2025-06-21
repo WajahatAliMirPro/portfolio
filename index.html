@@ -17,14 +17,20 @@
       background: #0d1117;
       overflow-x: hidden;
     }
-    .background-video {
+    .background-video-container {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      object-fit: cover;
+      overflow: hidden;
       z-index: -1;
+    }
+    .background-video {
+      width: 100%;
+      height: auto;
+      min-height: 100%;
+      object-fit: cover;
     }
     header {
       text-align: center;
@@ -37,12 +43,20 @@
       font-size: 3.2rem;
       margin-bottom: 0.5rem;
       text-shadow: 1px 1px 3px #00ffa6;
+      border: 2px solid #00ffa6;
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
     }
     header p {
       color: #00ffa6;
       font-size: 1.5rem;
       font-weight: bold;
       text-shadow: 1px 1px 2px #00ffa6;
+      border: 1px solid #00ffa6;
+      padding: 0.3rem 0.8rem;
+      border-radius: 8px;
+      display: inline-block;
     }
     section {
       max-width: 960px;
@@ -97,9 +111,11 @@
   </style>
 </head>
 <body>
-  <video autoplay muted loop class="background-video">
-    <source src="https://raw.githubusercontent.com/WajahatAliMirPro/portfolio.github.io/main/bgtheme.mp4" type="video/mp4">
-  </video>
+  <div class="background-video-container">
+    <video autoplay loop playsinline class="background-video">
+      <source src="https://raw.githubusercontent.com/WajahatAliMirPro/portfolio.github.io/main/bgtheme.mp4" type="video/mp4">
+    </video>
+  </div>
 
   <header>
     <h1>Wajahat Ali Mir</h1>
@@ -134,8 +150,15 @@
   </footer>
 
   <script>
-    // You can add fancy effects later, like fade-ins or typing animations
-    console.log("Welcome to Wajahat's Portfolio! Ready to build something great?");
+    // If the video doesn't play sound, it's likely due to browser policies that block autoplay with sound
+    const video = document.querySelector('video');
+    video.muted = false;
+    video.volume = 1.0;
+    video.play().catch(e => {
+      console.warn("Autoplay with sound is blocked by the browser. Fallback to muted mode.", e);
+      video.muted = true;
+      video.play();
+    });
   </script>
 </body>
 </html>
