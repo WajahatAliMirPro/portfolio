@@ -6,18 +6,32 @@
   <title>Wajahat Ali Mir - Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
       font-family: 'Fira Code', monospace;
-      background-color: #0d1117;
       color: #e6e6e6;
+      background: #0d1117;
+      overflow-x: hidden;
+    }
+    .background-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
     }
     header {
       text-align: center;
       padding: 3rem 1rem;
-      background-color: #111;
+      background: rgba(0, 0, 0, 0.6);
       box-shadow: 0 4px 12px #00ffa640;
-      border: 2px solid #00ffa6;
+      border-bottom: 2px solid #00ffa6;
     }
     header h1 {
       font-size: 3.2rem;
@@ -30,75 +44,49 @@
       font-weight: bold;
       text-shadow: 1px 1px 2px #00ffa6;
     }
-    .intro {
-      max-width: 860px;
-      margin: 2rem auto;
-      padding: 1rem;
-      font-size: 1.3rem;
-      line-height: 2;
-      border: 2px solid #00ffa6;
-      background-color: rgba(0,0,0,0.5);
-      text-shadow: 1px 1px 3px #000;
-    }
-    .video-container {
-      position: relative;
-      width: 100%;
-      height: 40vh;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #000;
-    }
-    .video-container video {
-      width: 70vw;
-      height: auto;
-      max-height: 40vh;
-      object-fit: cover;
-      border: 4px solid #00ffa6;
-      box-shadow: 0 0 20px #00ffa6a0;
-    }
     section {
       max-width: 960px;
       margin: 2rem auto;
-      padding: 1rem;
-      background-color: rgba(0,0,0,0.6);
+      padding: 2rem;
+      background-color: rgba(0, 0, 0, 0.7);
       border: 2px solid #00ffa6;
-    }
-    .project {
-      background-color: #1c1c1c;
-      border: 1px solid #333;
       border-radius: 10px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 0 10px #00ffa630;
+      box-shadow: 0 0 20px #00ffa630;
     }
-    .project h2 {
+    .about h2, .project h2 {
       color: #00ffa6;
+      margin-bottom: 1rem;
       text-shadow: 1px 1px 3px #000;
     }
-    .project p {
-      font-size: 1.1rem;
+    .about p, .project p {
+      font-size: 1.2rem;
       line-height: 1.8;
       text-shadow: 1px 1px 2px #000;
     }
+    ul {
+      list-style-type: square;
+      margin-left: 2rem;
+      margin-top: 1rem;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
     .project a {
+      display: inline-block;
+      margin-top: 1rem;
       color: #00ffa6;
+      font-weight: bold;
       text-decoration: none;
-    }
-    .tech {
-      margin-top: 2rem;
-      text-align: center;
-    }
-    .tech img {
-      height: 32px;
-      margin: 0 5px;
+      background-color: #111;
+      padding: 0.5rem 1rem;
+      border: 1px solid #00ffa6;
+      border-radius: 5px;
     }
     footer {
       text-align: center;
       font-size: 0.9rem;
       padding: 2rem 1rem;
-      background-color: #111;
+      background-color: rgba(0,0,0,0.8);
       color: #888;
       border-top: 2px solid #00ffa6;
     }
@@ -109,52 +97,45 @@
   </style>
 </head>
 <body>
+  <video autoplay muted loop class="background-video">
+    <source src="https://raw.githubusercontent.com/WajahatAliMirPro/portfolio.github.io/main/bgtheme.mp4" type="video/mp4">
+  </video>
+
   <header>
     <h1>Wajahat Ali Mir</h1>
     <p>Python Developer | App Creator | Automation Architect</p>
   </header>
 
-<video autoplay loop playsinline controls>
-  <source src="https://raw.githubusercontent.com/WajahatAliMirPro/portfolio/main/bgvideo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-<!-- Add a note for users -->
-<p style="color:#00ffa6">If you don't hear sound, try clicking the unmute button on the video controls!</p>
+  <section class="about">
+    <h2>👋 About Me</h2>
+    <p>Hello! I'm Wajahat — a code whisperer who crafts digital tools that *actually work*. My world revolves around:</p>
+    <ul>
+      <li>Building backend systems with Python (Flask, Django, FastAPI)</li>
+      <li>Creating mobile apps using Jetpack Compose</li>
+      <li>Automating boring stuff (and making it fun again)</li>
+      <li>Helping businesses solve real-world problems efficiently</li>
+    </ul>
+  </section>
 
-  <div class="intro">
-    <p>Hello! I'm Wajahat, a Python developer and automation enthusiast passionate about solving real-world problems through clean and scalable code. From backend APIs to Android apps, I blend logic with creativity to build tools that work smarter—not harder.</p>
-  </div>
-
-  <section>
-    <h2 style="color:#00ffa6; text-shadow: 1px 1px 3px #000;">🚀 Featured Projects</h2>
-
-    <div class="project">
-      <h2>Smart Form Generator</h2>
-      <p>A powerful form-building platform using Flask and SQLite that allows organizations to digitize their workflow. This tool supports custom field validation, smart templates, and export features for easy government use.</p>
-      <a href="https://github.com/wajahatalimirpro/smart-form-generator" target="_blank">🔗 GitHub Repo</a>
-    </div>
-
-    <div class="project">
-      <h2>Auto WhatsApp Bot</h2>
-      <p>A handy automation tool using Selenium to manage bulk messaging on WhatsApp Web. Ideal for businesses and institutions who want to keep in touch with clients or students automatically with zero hassle.</p>
-      <a href="https://github.com/wajahatalimirpro/auto-whatsapp-bot" target="_blank">🔗 GitHub Repo</a>
-    </div>
-
-    <div class="project">
-      <h2>Offline Attendance App</h2>
-      <p>An Android-based attendance tracking app built with Jetpack Compose. Designed for areas with unreliable internet, it syncs automatically when back online—perfect for use in remote educational institutions.</p>
-      <a href="https://github.com/wajahatalimirpro/offline-attendance" target="_blank">🔗 GitHub Repo</a>
-    </div>
-
-    <div class="tech">
-      <h3>⚙️ Tech Stack</h3>
-      <img src="https://skillicons.dev/icons?i=python,flask,django,fastapi,kotlin,androidstudio,mysql,sqlite,html,css,github&theme=dark" alt="Tech Stack">
-    </div>
+  <section class="project">
+    <h2>📱 WhatsApp Link Checker</h2>
+    <p>An efficient tool that verifies the validity of WhatsApp links in bulk. Great for marketing teams, educators, or any group using WA links for communication or outreach.</p>
+    <ul>
+      <li>Checks thousands of links automatically</li>
+      <li>Fast, reliable, and user-friendly</li>
+      <li>Can be extended to include custom message sending</li>
+    </ul>
+    <a href="https://github.com/WajahatAliMirPro/whatsapp-link-checker" target="_blank">🔗 View on GitHub</a>
   </section>
 
   <footer>
-    <p>Made with ❤️ by <a href="https://github.com/wajahatalimirpro">Wajahat Ali Mir</a></p>
-    <p>📬 Email: <a href="mailto:mrwajahatalimir@gmail.com">mrwajahatalimir@gmail.com</a></p>
+    <p>Crafted with 💻 and ☕ by <a href="https://github.com/wajahatalimirpro">Wajahat Ali Mir</a></p>
+    <p>📧 Email: <a href="mailto:mrwajahatalimir@gmail.com">mrwajahatalimir@gmail.com</a></p>
   </footer>
+
+  <script>
+    // You can add fancy effects later, like fade-ins or typing animations
+    console.log("Welcome to Wajahat's Portfolio! Ready to build something great?");
+  </script>
 </body>
 </html>
