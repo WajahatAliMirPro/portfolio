@@ -43,17 +43,18 @@
     .video-container {
       position: relative;
       width: 100%;
-      height: 60vh;
+      height: 50vh;
       overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
+      background-color: #000;
     }
     .video-container video {
-      width: 90vw;
+      width: 85vw;
       height: auto;
-      max-height: 60vh;
-      object-fit: contain;
+      max-height: 50vh;
+      object-fit: cover;
       border: 4px solid #00ffa6;
       box-shadow: 0 0 20px #00ffa6a0;
     }
@@ -114,7 +115,7 @@
   </header>
 
   <div class="video-container">
-    <video autoplay loop playsinline controls unmuted>
+    <video autoplay loop playsinline muted controls>
       <source src="https://raw.githubusercontent.com/WajahatAliMirPro/portfolio/main/bgvideo.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
